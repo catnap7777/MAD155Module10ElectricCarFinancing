@@ -1,5 +1,6 @@
 package mad155.kmathes.mad155module10electriccarfinancing;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,16 +26,25 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.btnPayment);
 
+        //.. instantiate the SharedPrefences object
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 intYears = Integer.parseInt(years.getText().toString());
                 intLoan = Integer.parseInt(loan.getText().toString());
                 decInterest = Float.parseFloat(interest.getText().toString());
+
+                //.. write the datat
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putInt("key1", intYears);
+                editor.putInt("key2", intLoan);
+                editor.putFloat("key3", decInterest);
+                editor.commit();
+
+                startActivity(new Intent(MainActivity.this, Payment.class));
 
 
             }
