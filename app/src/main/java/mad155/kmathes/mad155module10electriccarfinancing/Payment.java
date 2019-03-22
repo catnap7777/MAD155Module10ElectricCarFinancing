@@ -45,5 +45,6 @@ public class Payment extends AppCompatActivity {
             monthlyPayment.setText("Enter 3,4,or 5 years");
         }
 
+
     }
 }
