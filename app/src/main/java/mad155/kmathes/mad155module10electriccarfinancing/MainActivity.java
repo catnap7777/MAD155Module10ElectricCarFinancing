@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    //.. App to show how data (presistant data) can be saved to an XML file using SharedPreferences
     int intYears;
     int intLoan;
     float decInterest;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 intLoan = Integer.parseInt(loan.getText().toString());
                 decInterest = Float.parseFloat(interest.getText().toString());
 
-                //.. write the datat
+                //.. write the data
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("key1", intYears);
                 editor.putInt("key2", intLoan);
